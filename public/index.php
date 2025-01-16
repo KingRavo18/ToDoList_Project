@@ -11,13 +11,29 @@
     <main class="flex flex-grow justify-center items-center">
         <div class="bg-white w-[600px] h-[360px]">
             <div class="flex bg-[#0a779b] w-full h-[80px] text-white items-center">
-                <div><h1 class="pl-[20px] text-[40px]">TO-DO LIST</h1></div>
-                <div><p class="ml-[301px] text-[60px] cursor-pointer transition-all duration-800 font-bold hover:text-[gray]" onclick="showAddTaskPopup()">+</p></div>
+                <div>
+                    <h1 class="pl-[20px] text-[40px]">TO-DO LIST</h1>
+                </div>
+                <div>
+                    <p class="ml-[301px] text-[60px] cursor-pointer transition-all duration-800 font-bold hover:text-[gray]" onclick="showAddTaskPopup()">+</p>
+                </div>
             </div>
-            <div class="w-full">
+            <div class="w-full h-[280px] overflow-y-auto border-t border-gray-300">
                 <table class="w-full">
                     <?php
-                        require '../backend/displayTasks.php';
+                        require '../backend/database.php';
+                        $query = "SELECT id, description FROM tasks";
+                        $result = $mysqli->query($query);
+                        if ($result && $result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td class='p-3 pl-7 text-[30px] cursor-pointer hover:text-[#15afe2]'>{$row['description']}</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td class='p-3 pl-7 text-[30px] text-gray-500'>No tasks available</td></tr>";
+                        }
+                        $mysqli->close();
                     ?>
                 </table>
             </div>
