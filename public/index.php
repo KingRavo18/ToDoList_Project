@@ -22,15 +22,13 @@
                 <table class="w-full">
                 <?php
                     require '../backend/database.php';
-
                     $query = "SELECT id, description FROM tasks";
                     $result = $mysqli->query($query);
-
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr data-task-id='{$row['id']}'>";
-                            echo "<td class='p-3 pl-7 text-[20px] sm:text-[30px] cursor-pointer hover:text-[#15afe2]' onclick='showDeleteTaskPopup({$row['id']})'>{$row['description']}</td>";
-                            echo "<td class='text-right p-3 pr-7'><button class='p-1 sm:p-2 bg-[#0a779b] text-white rounded hover:bg-[#15afe2] transition-all' onclick='showEditTaskPopup({$row['id']}, \"{$row['description']}\")'>Edit</button></td>";
+                            echo "<td class='p-3 pl-7 text-[20px] sm:text-[30px] cursor-pointer hover:text-[#15afe2]' onclick='showEditTaskPopup({$row['id']}, \"{$row['description']}\")' >{$row['description']}</td>";
+                            echo "<td class='text-right p-3 pr-7'><button class='p-1 sm:p-2 bg-[#0a779b] text-white rounded hover:bg-[#15afe2] transition-all' onclick='showDeleteTaskPopup({$row['id']})'>Delete</button></td>";
                             echo "</tr>";
                         }
                     } else {

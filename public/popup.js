@@ -1,7 +1,6 @@
 function showAddTaskPopup() {
     const popupFullPage = document.getElementById('AddTaskPopupFullPage');
     const popup = document.getElementById('AddTaskPopup');
-
     popupFullPage.classList.remove('hidden'); 
     popup.offsetWidth; 
     popup.classList.add('opacity-100', 'scale-100'); 
@@ -11,7 +10,6 @@ function showAddTaskPopup() {
 function hideAddTaskPopup() {
     const popupFullPage = document.getElementById('AddTaskPopupFullPage');
     const popup = document.getElementById('AddTaskPopup');
-
     popup.classList.add('opacity-0', 'scale-95'); 
     popup.classList.remove('opacity-100', 'scale-100'); 
     setTimeout(() => {
@@ -23,9 +21,7 @@ function showDeleteTaskPopup(taskId) {
     const popupFullPage = document.getElementById('DeleteTaskPopupFullPage');
     const popup = document.getElementById('DeleteTaskPopup');
     const deleteButton = popup.querySelector('button[data-action="delete"]');
-
     deleteButton.dataset.taskId = taskId;
-
     popupFullPage.classList.remove('hidden');
     popup.offsetWidth;
     popup.classList.add('opacity-100', 'scale-100');
@@ -35,7 +31,6 @@ function showDeleteTaskPopup(taskId) {
 function hideDeleteTaskPopup() {
     const popupFullPage = document.getElementById('DeleteTaskPopupFullPage');
     const popup = document.getElementById('DeleteTaskPopup');
-
     popup.classList.add('opacity-0', 'scale-95');
     popup.classList.remove('opacity-100', 'scale-100');
     setTimeout(() => {
@@ -46,7 +41,6 @@ function hideDeleteTaskPopup() {
 function deleteTask() {
     const deleteButton = document.querySelector('button[data-action="delete"]');
     const taskId = deleteButton.dataset.taskId;
-
     fetch(`../backend/deleteTask.php?id=${taskId}`, {
         method: 'GET',
     })
@@ -66,19 +60,17 @@ function deleteTask() {
         alert('An error occurred while deleting the task.');
     });
 }
+
 function showEditTaskPopup(taskId, description) {
     const popupFullPage = document.getElementById('EditTaskPopupFullPage');
     const popup = document.getElementById('EditTaskPopup');
     const editForm = document.getElementById('editTaskForm');
-
     document.getElementById('editTaskId').value = taskId;
     document.getElementById('editTaskDescription').value = description;
-
     popupFullPage.classList.remove('hidden');
     popup.offsetWidth;
     popup.classList.add('opacity-100', 'scale-100');
     popup.classList.remove('opacity-0', 'scale-95');
-
     editForm.onsubmit = function (e) {
         e.preventDefault();
         updateTask(taskId);
@@ -88,7 +80,6 @@ function showEditTaskPopup(taskId, description) {
 function hideEditTaskPopup() {
     const popupFullPage = document.getElementById('EditTaskPopupFullPage');
     const popup = document.getElementById('EditTaskPopup');
-
     popup.classList.add('opacity-0', 'scale-95');
     popup.classList.remove('opacity-100', 'scale-100');
     setTimeout(() => {
@@ -98,7 +89,6 @@ function hideEditTaskPopup() {
 
 function updateTask(taskId) {
     const description = document.getElementById('editTaskDescription').value;
-
     fetch('../backend/editTask.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
