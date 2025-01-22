@@ -4,7 +4,11 @@ module.exports = {
     "./public/*.{php,html}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        'giant': '300px',
+    },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

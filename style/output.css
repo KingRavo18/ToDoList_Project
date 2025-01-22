@@ -204,24 +204,6 @@ abbr:where([title]) {
 Remove the default font size and weight for headings.
 */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-/*
-Reset links to optimize for opt-in styling instead of opt-out.
-*/
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
 
 /*
 Add the correct font weight in Edge and Safari.
@@ -789,12 +771,20 @@ select {
   margin-left: 140px;
 }
 
+.mr-\[10px\] {
+  margin-right: 10px;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
 
 .mt-\[1px\] {
   margin-top: 1px;
+}
+
+.mt-\[20px\] {
+  margin-top: 20px;
 }
 
 .mt-\[30px\] {
@@ -1013,7 +1003,7 @@ select {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-main {
+body {
   background: linear-gradient(to top, #15afe2, #ffffff);
   min-height: 80vh;
   font-family: 'Times New Roman', Times, serif;

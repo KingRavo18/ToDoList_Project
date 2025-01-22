@@ -77,6 +77,9 @@
         </div>
     </main>
     <footer class="bottom-[0] bg-white h-[100px]">
+        <div class="text-right mr-[10px] mt-[20px]">
+            <a href="../backend/logout.php" class="p-1 sm:p-2 bg-[#0a779b] text-white hover:bg-[#15afe2] rounded transition-all">Logout</a>
+        </divc>
     </footer>
     <script src="popup.js"></script>
 </body>
