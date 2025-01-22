@@ -15,15 +15,27 @@
                 <h1 class="text-[20px] sm:text-[40px] text-white">LOG IN</h1>
             </div>
             <div class="mt-[20px]">
-                <form action="../../backend/login.php" method="POST" class="flex flex-col items-center">
-                    <input type="text" name="username" placeholder=" Username" required>
-                    <input type="password" name="password" placeholder=" Password" required>
-                    <a href="signUp.php">Need an account?</a>
-                    <button class="p-2 bg-[rgb(216,_216,_216)] transition-all mt-[30px] duration-800 hover:bg-[rgb(170,_170,_170)]">Log In</button>
+                <form action="../../backend/login.php" method="POST">
+                    <div class="flex flex-col items-center gap-4">
+                        <input type="text" name="username" placeholder=" Username" class="duration-800 pointer hover:bg-[gray]" required>
+                        <input type="password" name="password" placeholder=" Password" class="duration-800 pointer hover:bg-[gray]"   required>
+                    </div>
+                    <div class="text-right mr-[10px]"><a href="signUp.php">Need an account?</a></div>
+                    <div class="Error text-center">
+                        <?php
+                            if (isset($_GET['login_error'])) {
+                                echo '<p>' . htmlspecialchars($_GET['login_error']) . '</p>';
+                            }
+                        ?>
+                    </div>  
+                    <div class="flex flex-col items-center gap-4">
+                        <button class="p-2 bg-[rgb(216,_216,_216)] transition-all mt-[30px] duration-800 hover:bg-[rgb(170,_170,_170)]">Log In</button>
+                    </div>
                 </form>
             </div>
         </div>
     </main>
     <footer class="bottom-[0] bg-white h-[100px]"></footer>
+    <script src="script.js"></script>
 </body>
 </html>

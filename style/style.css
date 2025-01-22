@@ -12,3 +12,10 @@ body {
 tr:nth-child(odd) {
     background-color: #dddddd;
   }
+  h1 {
+    font-size: 100px;
+  }
+  .Error{
+    color: red;
+    font-size: 10px;
+  }
