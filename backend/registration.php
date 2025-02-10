@@ -45,7 +45,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             if (mysqli_num_rows($result) > 0) {
-                header("Location: ../public/Registration/signUp.php?signup_error=Lietotājvārds vai E-pasts jau eksistē");
+                header("Location: ../public/Registration/signUp.php?signup_error=Lietotājvārds jau eksistē");
                 exit();
             } else {
                 $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
