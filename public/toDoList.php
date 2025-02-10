@@ -1,3 +1,18 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../public/Registration/index.php");
+    exit();
+}
+require '../backend/database.php';
+
+$user_id = $_SESSION['user_id'];
+$query = "SELECT id, description FROM tasks WHERE user_id = ?";
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +27,7 @@
         <div class="bg-white w-[300px] sm:w-[600px] h-[320px] sm:h-[360px]">
             <div class="flex bg-[#0a779b] w-full h-[50px] sm:h-[80px] text-white items-center">
                 <div>
-                    <h2 class="pl-[10px] sm:pl-[20px] text-[10px] sm:text-[40px]">TO-DO LIST</h2>
+                    <h2 class="pl-[10px] sm:pl-[20px] text-[20px] sm:text-[40px]">TO-DO LIST</h2>
                 </div>
                 <div>
                     <p class="ml-[140px] sm:ml-[301px] text-[35px] sm:text-[60px] cursor-pointer transition-all duration-800 font-bold hover:text-[gray]" onclick="showAddTaskPopup()">+</p>
@@ -21,19 +36,17 @@
             <div class="w-full h-[280px] overflow-y-auto border-t border-gray-300">
                 <table class="w-full">
                 <?php
-                    require '../backend/database.php';
-                    $query = "SELECT id, description FROM tasks";
-                    $result = $mysqli->query($query);
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr data-task-id='{$row['id']}'>";
-                            echo "<td class='p-3 pl-7 text-[20px] sm:text-[30px] cursor-pointer hover:text-[#15afe2]' onclick='showEditTaskPopup({$row['id']}, \"{$row['description']}\")' >{$row['description']}</td>";
+                            echo "<td class='p-3 pl-7 text-[20px] sm:text-[30px] cursor-pointer hover:text-[#15afe2]' onclick='showEditTaskPopup({$row['id']}, \"{$row['description']}\")'>{$row['description']}</td>";
                             echo "<td class='text-right p-3 pr-7'><button class='p-1 sm:p-2 bg-[#0a779b] text-white rounded hover:bg-[#15afe2] transition-all' onclick='showDeleteTaskPopup({$row['id']})'>Delete</button></td>";
                             echo "</tr>";
                         }
                     } else {
                         echo "<tr><td class='p-3 pl-7 text-[30px] text-gray-500' colspan='2'>No tasks available</td></tr>";
                     }
+                    $stmt->close();
                     $mysqli->close();
                 ?>
                 </table>
@@ -78,7 +91,7 @@
     </main>
     <footer class="bottom-[0] bg-white h-[100px]">
         <div class="text-right mr-[10px] mt-[20px]">
-            <a href="../backend/logout.php" class="p-1 sm:p-2 bg-[#0a779b] text-white hover:bg-[#15afe2] rounded transition-all">Logout</a>
+            <a href="../backend/logout.php" class="p-2 sm:p-2 bg-[#0a779b] text-white hover:bg-[#15afe2] rounded transition-all">Logout</a>
         </divc>
     </footer>
     <script src="popup.js"></script>

@@ -809,6 +809,10 @@ select {
   margin-top: 30px;
 }
 
+.ml-\[10px\] {
+  margin-left: 10px;
+}
+
 .flex {
   display: flex;
 }
@@ -1086,6 +1090,10 @@ tr:nth-child(odd) {
 
   .sm\:mt-\[20px\] {
     margin-top: 20px;
+  }
+
+  .sm\:ml-0 {
+    margin-left: 0px;
   }
 
   .sm\:h-\[150px\] {

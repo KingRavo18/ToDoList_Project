@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../style/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>To Do List Log In</title>
+    <title>To-Do List Log-In</title>
 </head>
 <body class="flex flex-col items-center min-h-screen">
     <h1 class="text-center text-[300px] absolute title">TO-DO LIST</h1>
