@@ -12,7 +12,7 @@
         <div class="bg-white w-[300px] sm:w-[600px] h-[320px] sm:h-[360px]">
             <div class="flex bg-[#0a779b] w-full h-[50px] sm:h-[80px] text-white items-center">
                 <div>
-                    <h2 class="pl-[10px] sm:pl-[20px] text-[20px] sm:text-[40px]">TO-DO LIST</h2>
+                    <h2 class="pl-[10px] sm:pl-[20px] text-[10px] sm:text-[40px]">TO-DO LIST</h2>
                 </div>
                 <div>
                     <p class="ml-[140px] sm:ml-[301px] text-[35px] sm:text-[60px] cursor-pointer transition-all duration-800 font-bold hover:text-[gray]" onclick="showAddTaskPopup()">+</p>

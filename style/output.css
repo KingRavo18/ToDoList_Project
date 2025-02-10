@@ -219,8 +219,8 @@ Reset links to optimize for opt-in styling instead of opt-out.
 */
 
 a {
-  color: blue;
-  text-decoration: underline;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 /*
@@ -977,6 +977,10 @@ select {
   text-align: right;
 }
 
+.text-\[10px\] {
+  font-size: 10px;
+}
+
 .text-\[20px\] {
   font-size: 20px;
 }
@@ -1035,13 +1039,19 @@ tr:nth-child(odd) {
   background-color: #dddddd;
 }
 
-h1 {
-  font-size: 100px;
+.title {
+  margin-top: 10px;
+  font-size: 60px;
 }
 
 .Error{
   color: red;
   font-size: 10px;
+}
+
+.link {
+  color: blue;
+  text-decoration: underline;
 }
 
 .hover\:bg-\[\#15afe2\]:hover {

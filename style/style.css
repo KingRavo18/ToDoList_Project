@@ -12,10 +12,15 @@ body {
 tr:nth-child(odd) {
     background-color: #dddddd;
   }
-  h1 {
-    font-size: 100px;
+  .title {
+    margin-top: 10px;
+    font-size: 60px;
   }
   .Error{
     color: red;
     font-size: 10px;
+  }
+  .link {
+    color: blue;
+    text-decoration: underline;
   }

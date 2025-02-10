@@ -8,7 +8,7 @@
     <title>To Do List Log In</title>
 </head>
 <body class="flex flex-col items-center min-h-screen">
-    <h1 class="text-center text-[300px] absolute">TO-DO LIST</h1>
+    <h1 class="text-center text-[300px] absolute title">TO-DO LIST</h1>
     <main class="flex flex-grow justify-center items-center">
         <div class="bg-white w-[300px] sm:w-[300px] h-[320px] sm:h-[430px]">
             <div class="bg-[#0a779b] w-full h-[50px] sm:h-[80px] flex justify-center items-center">
@@ -20,7 +20,7 @@
                         <input type="text" name="username" placeholder=" Username" class="duration-800 pointer hover:bg-[gray]" required>
                         <input type="password" name="password" placeholder=" Password" class="duration-800 pointer hover:bg-[gray]"   required>
                     </div>
-                    <div class="text-right mr-[10px]"><a href="signUp.php">Need an account?</a></div>
+                    <div class="text-right mr-[10px]"><a href="signUp.php" class="link">Need an account?</a></div>
                     <div class="Error text-center">
                         <?php
                             if (isset($_GET['login_error'])) {
